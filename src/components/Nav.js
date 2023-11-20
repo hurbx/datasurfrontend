@@ -48,7 +48,7 @@ const Wrapper = styled.div`
 
   ul li:hover i {
     color: black;
-    background: ghostwhite;
+    background: #95eef1;
     transform: rotate(360deg);
     transition: all 1s;
   }
@@ -66,7 +66,7 @@ const Wrapper = styled.div`
   }
 
   a {
-    color: #0a1526; //color texto de nav
+    color: #fff;
     text-decoration: none;
     display: block;
   }
