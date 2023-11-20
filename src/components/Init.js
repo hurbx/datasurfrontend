@@ -5,6 +5,11 @@ import {useEffect, useState} from 'react';
 
 const Init = () => {
     const[apiData, setApiData] = useState([]);
+    const[uF, setUF] = useState([]);
+    const[dolar, setDolar] = useState([]);
+    const[euro, setEuro] = useState([]);
+    const[utm, setUtm] = useState([]);
+
     const navigate = useNavigate()
     const handleCardClick = (route) => {navigate(route)}
 
@@ -14,6 +19,10 @@ const Init = () => {
                 const response = await fetch('http://127.0.0.1:8000/data/data/');
                 const data = await response.json();
                 setApiData(data);
+                setUF(data[data.length - 1].uf);
+                setDolar(data[data.length - 1].dolar_obs);
+                setEuro(data[data.length - 1].euro);
+                setUtm(data[data.length - 1].utm);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -21,11 +30,10 @@ const Init = () => {
         void fetchData();
     }, []);
 
-    console.log(apiData);
-
-
-
-
+    console.log(uF)
+    console.log(dolar)
+    console.log(euro)
+    console.log(utm)
     return (
         <div style={{
             display: 'flex',
@@ -36,7 +44,7 @@ const Init = () => {
         }}>
             <div onClick={() => handleCardClick('/history')}>
                 <CustomCard
-                    value={'$29.000'}
+                    value={dolar}
                     pos={'left'}
                     title={'DOLLAR'}
                     alt={'dolar'}
@@ -46,7 +54,7 @@ const Init = () => {
 
             <div onClick={() => handleCardClick('/history')}>
                 <CustomCard
-                    value={'$29.000'}
+                    value={euro}
                     pos={'left'}
                     title={'EURO'}
                     alt={'euro'}
@@ -56,7 +64,7 @@ const Init = () => {
 
             <div onClick={() => handleCardClick('/history')}>
                 <CustomCard
-                    value={'$29.000'}
+                    value={uF}
                     pos={'left'}
                     title={'UF'}
                     alt={'uf'}
@@ -66,7 +74,7 @@ const Init = () => {
 
             <div onClick={() => handleCardClick('/history')}>
                 <CustomCard
-                    value={'$29.000'}
+                    value={utm}
                     pos={'left'}
                     title={'UTM'}
                     alt={'utm'}

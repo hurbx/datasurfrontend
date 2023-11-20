@@ -9,16 +9,7 @@ const Nav = () => {
                         <a href='/'>Home<i className={'pi pi-home'}></i></a>
                     </li>
                     <li>
-                        <a href='/dolar'>Dolar<i className={'pi pi-dollar'}></i></a>
-                    </li>
-                    <li>
-                        <a href='/uf'>UF<i className={'pi pi-money-bill'}></i></a>
-                    </li>
-                    <li>
-                        <a href='/utm'>UTM<i className={'pi pi-chart-line'}></i></a>
-                    </li>
-                    <li>
-                        <a href='/euro'>Euro<i className={'pi pi-euro'}></i></a>
+                        <a href='/utm'>Historial<i className={'pi pi-chart-line'}></i></a>
                     </li>
                 </ul>
             </div>
