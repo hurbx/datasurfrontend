@@ -1,13 +1,14 @@
-import 'primereact/resources/themes/md-dark-indigo/theme.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import Init from './components/Init';
-import { PrimeReactProvider } from 'primereact/api';
-import Nav from './components/Nav';
-import 'primeicons/primeicons.css';
-import History from './components/History';
+import 'primereact/resources/themes/md-dark-indigo/theme.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './App.css'
+import Init from './components/Init'
+import { PrimeReactProvider } from 'primereact/api'
+import Nav from './components/Nav'
+import 'primeicons/primeicons.css'
+import History from './components/History'
+import React from 'react'
 
-function App() {
+function App () {
   return (
       <PrimeReactProvider>
         <Router>
@@ -18,7 +19,7 @@ function App() {
           </Routes>
         </Router>
       </PrimeReactProvider>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,6 +1,7 @@
 import CustomCard from './CustomCard';
 import { useNavigate } from 'react-router-dom';
-import {useEffect, useState} from 'react';
+import { React, useEffect, useState } from 'react';
+
 
 
 const Init = () => {
@@ -19,6 +20,7 @@ const Init = () => {
                 console.error('Error fetching data:', error);
             }
         };
+        // eslint-disable-next-line no-void
         void fetchData();
     }, []);
 
@@ -37,7 +39,7 @@ const Init = () => {
                     pos={'left'}
                     title={'DOLLAR'}
                     alt={'dolar'}
-                    imagen={'https://www.concierto.cl/wp-content/uploads/2023/09/Precio-del-dolar-en-chile-hoy-7-768x432.webp'}
+                    image={'https://www.concierto.cl/wp-content/uploads/2023/09/Precio-del-dolar-en-chile-hoy-7-768x432.webp'}
                 />
             </div>
 
@@ -47,7 +49,7 @@ const Init = () => {
                     pos={'left'}
                     title={'EURO'}
                     alt={'euro'}
-                    imagen={'https://www.valor-euro.cl/wp-content/uploads/2019/05/que-es-el-euro.webp'}
+                    image={'https://www.valor-euro.cl/wp-content/uploads/2019/05/que-es-el-euro.webp'}
                 />
             </div>
 
@@ -57,7 +59,7 @@ const Init = () => {
                     pos={'left'}
                     title={'UF'}
                     alt={'uf'}
-                    imagen={'https://www.24horas.cl/24horas/site/artic/20230711/imag/foto_0000000220230711181239/UF-VALOR-CHILE-JULIO-AGOSTO.jpg'}
+                    image={'https://www.24horas.cl/24horas/site/artic/20230711/imag/foto_0000000220230711181239/UF-VALOR-CHILE-JULIO-AGOSTO.jpg'}
                 />
             </div>
 
@@ -67,7 +69,7 @@ const Init = () => {
                     pos={'left'}
                     title={'UTM'}
                     alt={'utm'}
-                    imagen={'https://www.nostalgica.cl/wp-content/uploads/2023/10/1225196.jpg'}
+                    image={'https://www.nostalgica.cl/wp-content/uploads/2023/10/1225196.jpg'}
                 />
             </div>
         </div>

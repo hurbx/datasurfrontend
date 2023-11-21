@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const CustomCard = ({ title, imagen, alt, value }) => {
+const CustomCard = ({ title, image, alt, value }) => {
     return (
         <Wrapper>
             <div className={'card'}>
                 <div className={'poster'}>
-                    <img className={'card-image'} src={imagen} alt={alt} />
+                    <img className={'card-image'} src={image} alt={alt} />
                 </div>
                 <div className={'details'}>
                     <h1>{title}</h1>
@@ -21,6 +22,12 @@ const CustomCard = ({ title, imagen, alt, value }) => {
         </Wrapper>
     )
 }
+CustomCard.propTypes = {
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+};
 export default CustomCard;
 
 const Wrapper = styled.div`

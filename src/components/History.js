@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {React, useEffect, useState} from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
@@ -13,9 +13,9 @@ const History = () => {
 
     const onGlobalFilterChange = (e) => {
         const value = e.target.value;
-        let _filters = { ...filters };
+        const _filters = { ...filters };
 
-        _filters['global'].value = value;
+        _filters.global.value = value;
 
         setFilters(_filters);
         setGlobalFilterValue(value);
@@ -44,6 +44,7 @@ const History = () => {
                 console.error('Error fetching data:', error);
             }
         };
+        // eslint-disable-next-line no-void
         void fetchData();
     }, []);
     return (
