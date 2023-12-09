@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   .card {
     background: #ffffff;
     position: relative;
-    width: 600px;
+    width: 550px;
     height: 200px;
     border-radius: 18px;
     overflow: hidden;
