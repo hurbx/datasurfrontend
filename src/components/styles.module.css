@@ -17,16 +17,25 @@
 }
 
 .indicadora {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-area: indicadora;
     background-color: #00ff00; /* Color de fondo para la clase indicadora */
 }
 
 .indicadorb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-area: indicadorb;
     background-color: #0000ff; /* Color de fondo para la clase indicadorb */
 }
 
 .indicadorc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-area: indicadorc;
     background-color: #ffff00; /* Color de fondo para la clase indicadorc */
 }

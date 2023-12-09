@@ -7,11 +7,13 @@ import {Card} from 'primereact/card';
 import {DataTable} from 'primereact/datatable';
 import {Column} from 'primereact/column';
 import styles from './styles.module.css'
+import CustomIndicator from './CustomIndicator';
 
 
 
 const Init = () => {
     const[apiData, setApiData] = useState([]);
+    const[misc, setMisc] = useState({});
     const [filters, setFilters] = useState({
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
         name: { value: null, matchMode: FilterMatchMode.STARTS_WITH }});
@@ -49,18 +51,63 @@ const Init = () => {
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
+
+        };
+        const fetchMisc = async () => {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/data/misc/');
+                const data = await response.json();
+                setMisc(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+
+
         };
         // eslint-disable-next-line no-void
         void fetchData();
+        // eslint-disable-next-line no-void
+        void fetchMisc();
     }, []);
+    console.log(misc);
     return (
         <div className={styles.container}>
             <div className={styles.grafico}>hola1</div>
-            <div className={styles.indicadora}>hola2</div>
-            <div className={styles.indicadorb}>hola3</div>
-            <div className={styles.indicadorc}>hola4</div>
+            <div className={styles.indicadora}>
+                <CustomCard
+                    title={'MAXIMO 2023'}
+                    value={misc.max_value}
+                />
+            </div>
+            <div className={styles.indicadorb}>
+                <CustomCard
+                    title={'PROMEDIO 2023'}
+                    value={misc.average_value}
+                />
+            </div>
+            <div className={styles.indicadorc}>
+                <CustomCard
+                    title={'MINIMO 2023'}
+                    value={misc.min_value}
+                />
+            </div>
             <div className={styles.top}>hola5</div>
-            <div className={styles.tabla}>hola6</div>
+            <div className={styles.tabla}>
+                <DataTable
+                    header={header}
+                    value={apiData}
+                    paginator rows={5}
+                    rowsPerPageOptions={[5, 10, 25, 50]}
+                    tableStyle={{ minWidth: '50rem' }}
+                    dataKey={'id'}
+                    filters={filters}
+                    globalFilter={globalFilterValue}
+                >
+                    <Column field="day" header="Dia" style={{ width: '20%' }} sortable></Column>
+                    <Column field="value" header="Valor" style={{ width: '20%' }} sortable></Column>
+                    <Column field="month" header="Mes" style={{ width: '20%' }} sortable></Column>
+                </DataTable>
+            </div>
             <div className={styles.grafico2}>hola7</div>
         </div>
         /* <div style={{ display: 'flex', padding: '4rem', height: '100vh', background:'whitesmoke', alignItems: 'center' }}>

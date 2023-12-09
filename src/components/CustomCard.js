@@ -2,21 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const CustomCard = ({ title, image, alt, value }) => {
+const CustomCard = ({ title, value }) => {
     return (
         <Wrapper>
             <div className={'card'}>
-                <div className={'poster'}>
-                    <img className={'card-image'} src={image} alt={alt} />
+                <div className={'first'}>
+                    {value}
                 </div>
                 <div className={'details'}>
-                    <h1>{title}</h1>
-                    <h2>{value}</h2>
+                    <h3>{title}</h3>
+                    <h4>{value}</h4>
                     <p className={'card-description'}>
                         Valor actualizado
                         segun Banco Central de Chile
                     </p>
-                    <button> Historial</button>
                 </div>
             </div>
         </Wrapper>
@@ -24,8 +23,6 @@ const CustomCard = ({ title, image, alt, value }) => {
 }
 CustomCard.propTypes = {
     title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
 };
 export default CustomCard;
@@ -33,13 +30,21 @@ export default CustomCard;
 const Wrapper = styled.div`
   .card {
     position: relative;
-    width: 280px;
-    height: 450px;
-    background: #000;
+    width: 450px;
+    height: 200px;
     border-radius: 18px;
     overflow: hidden;
     cursor: pointer;
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.54);
+    
+    .first {
+      display: flex;
+        align-items: center;
+        justify-content: center;
+      margin-top: 85px ;
+      font-weight: 600;
+      font-size: 2em;
+    }
 
     .poster {
       position: relative;
@@ -59,7 +64,7 @@ const Wrapper = styled.div`
         transition: 0.3s;
       }
 
-      img {
+      .img {
         position: absolute;
         inset: 0;
         width: 100%;
@@ -90,13 +95,13 @@ const Wrapper = styled.div`
       color: #fff;
       z-index: 2;
 
-      h1 {
+      h3 {
         font-weight: 700;
         font-size: 1.5em;
         margin-bottom: 0.3em;
       }
 
-      h2 {
+      h4 {
         font-weight: 400;
         font-size: 1em;
         margin-bottom: 0.8em;
@@ -108,16 +113,6 @@ const Wrapper = styled.div`
         opacity: 0.8;
         line-height: 1.5;
         margin-bottom: 0.8em;
-      }
-
-      button {
-        outline: none;
-        padding: 0.5rem 0.75rem;
-        color: #fff;
-        background: transparent;
-        border: 1.5px solid rgba(255 255 255 / 0.4);
-        border-radius: 50px;
-        cursor: pointer;
       }
     }
 
