@@ -23,6 +23,7 @@ const Wrapper = styled.div`
   .social {
     position: fixed;
     top: 20px;
+    z-index: 9999;
   }
 
   ul {

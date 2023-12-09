@@ -1,4 +1,4 @@
-import 'primereact/resources/themes/md-dark-indigo/theme.css'
+import 'primereact/resources/themes/lara-light-indigo/theme.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Init from './components/Init'

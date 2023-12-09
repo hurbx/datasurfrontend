@@ -1,19 +1,49 @@
 import CustomCard from './CustomCard';
 import { useNavigate } from 'react-router-dom';
 import { React, useEffect, useState } from 'react';
+import {FilterMatchMode} from 'primereact/api';
+import {InputText} from 'primereact/inputtext';
+import {Card} from 'primereact/card';
+import {DataTable} from 'primereact/datatable';
+import {Column} from 'primereact/column';
+import styles from './styles.module.css'
 
 
 
 const Init = () => {
-    const[apiData, setApiData] = useState({});
+    const[apiData, setApiData] = useState([]);
+    const [filters, setFilters] = useState({
+        global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+        name: { value: null, matchMode: FilterMatchMode.STARTS_WITH }});
+    const [globalFilterValue, setGlobalFilterValue] = useState('');
 
-    const navigate = useNavigate()
-    const handleCardClick = (route) => {navigate(route)}
+    const onGlobalFilterChange = (e) => {
+        const value = e.target.value;
+        const _filters = { ...filters };
+
+        _filters.global.value = value;
+
+        setFilters(_filters);
+        setGlobalFilterValue(value);
+    };
+
+    const renderHeader = () => {
+        return (
+            <div className="flex justify-content-end">
+                <span className="p-input-icon-left">
+                    <i className="pi pi-search" />
+                    <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Keyword Search" />
+                </span>
+            </div>
+        );
+    };
+
+    const header = renderHeader();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8000/data/last/');
+                const response = await fetch('http://127.0.0.1:8000/data/list/');
                 const data = await response.json();
                 setApiData(data);
             } catch (error) {
@@ -23,58 +53,33 @@ const Init = () => {
         // eslint-disable-next-line no-void
         void fetchData();
     }, []);
-
-
     return (
-        <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: '100vh',
-            gap: 60,
-        }}>
-            <div onClick={() => handleCardClick('/history')}>
-                <CustomCard
-                    value={apiData.dolar_obs}
-                    pos={'left'}
-                    title={'DOLLAR'}
-                    alt={'dolar'}
-                    image={'https://www.concierto.cl/wp-content/uploads/2023/09/Precio-del-dolar-en-chile-hoy-7-768x432.webp'}
-                />
-            </div>
-
-            <div onClick={() => handleCardClick('/history')}>
-                <CustomCard
-                    value={apiData.euro}
-                    pos={'left'}
-                    title={'EURO'}
-                    alt={'euro'}
-                    image={'https://www.valor-euro.cl/wp-content/uploads/2019/05/que-es-el-euro.webp'}
-                />
-            </div>
-
-            <div onClick={() => handleCardClick('/history')}>
-                <CustomCard
-                    value={apiData.uf}
-                    pos={'left'}
-                    title={'UF'}
-                    alt={'uf'}
-                    image={'https://www.24horas.cl/24horas/site/artic/20230711/imag/foto_0000000220230711181239/UF-VALOR-CHILE-JULIO-AGOSTO.jpg'}
-                />
-            </div>
-
-            <div onClick={() => handleCardClick('/history')}>
-                <CustomCard
-                    value={apiData.utm}
-                    pos={'left'}
-                    title={'UTM'}
-                    alt={'utm'}
-                    image={'https://www.nostalgica.cl/wp-content/uploads/2023/10/1225196.jpg'}
-                />
-            </div>
+        <div className={styles.container}>
+            <div className={styles.grafico}>hola1</div>
+            <div className={styles.indicadora}>hola2</div>
+            <div className={styles.indicadorb}>hola3</div>
+            <div className={styles.indicadorc}>hola4</div>
+            <div className={styles.top}>hola5</div>
+            <div className={styles.tabla}>hola6</div>
+            <div className={styles.grafico2}>hola7</div>
         </div>
-
-    );
-
+        /* <div style={{ display: 'flex', padding: '4rem', height: '100vh', background:'whitesmoke', alignItems: 'center' }}>
+            <div style={{ background:'white',  }}>hola</div>
+                <DataTable
+                    header={header}
+                    value={apiData}
+                    paginator rows={5}
+                    rowsPerPageOptions={[5, 10, 25, 50]}
+                    tableStyle={{ minWidth: '50rem' }}
+                    dataKey={'id'}
+                    filters={filters}
+                    globalFilter={globalFilterValue}
+                >
+                    <Column field="day" header="Dia" style={{ width: '20%' }} sortable></Column>
+                    <Column field="value" header="Valor" style={{ width: '20%' }} sortable></Column>
+                    <Column field="month" header="Mes" style={{ width: '20%' }} sortable></Column>
+                </DataTable>
+        </div> */
+    )
 }
 export default Init;
