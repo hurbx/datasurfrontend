@@ -14,7 +14,7 @@ const CustomCard = ({ title, value }) => {
                     <h4>{value}</h4>
                     <p className={'card-description'}>
                         Valor actualizado
-                        segun Banco Central de Chile
+                        segun SII
                     </p>
                 </div>
             </div>
@@ -29,21 +29,23 @@ export default CustomCard;
 
 const Wrapper = styled.div`
   .card {
+    background: #ffffff;
     position: relative;
-    width: 450px;
+    width: 600px;
     height: 200px;
     border-radius: 18px;
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.54);
-    
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+
     .first {
       display: flex;
-        align-items: center;
-        justify-content: center;
-      margin-top: 85px ;
+      align-items: center;
+      justify-content: center;
+      margin-top: 85px;
       font-weight: 600;
       font-size: 2em;
+      color: grey;
     }
 
     .poster {
@@ -107,7 +109,7 @@ const Wrapper = styled.div`
         margin-bottom: 0.8em;
         opacity: 0.6;
       }
-      
+
       .desc {
         color: #fff;
         opacity: 0.8;

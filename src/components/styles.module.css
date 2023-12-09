@@ -1,8 +1,9 @@
 .container {
+    background: #f6f8f8;
     display: grid;
-    padding: 5rem;
+    padding: 2rem;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.5fr 1.3fr 1.2fr;
+    grid-template-rows: 0.3fr 1.3fr 1.2fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -13,7 +14,6 @@
 
 .grafico {
     grid-area: grafico;
-    background-color: #ff0000; /* Color de fondo para la clase grafico */
 }
 
 .indicadora {
@@ -21,7 +21,6 @@
     align-items: center;
     justify-content: center;
     grid-area: indicadora;
-    background-color: #00ff00; /* Color de fondo para la clase indicadora */
 }
 
 .indicadorb {
@@ -29,7 +28,6 @@
     align-items: center;
     justify-content: center;
     grid-area: indicadorb;
-    background-color: #0000ff; /* Color de fondo para la clase indicadorb */
 }
 
 .indicadorc {
@@ -37,20 +35,16 @@
     align-items: center;
     justify-content: center;
     grid-area: indicadorc;
-    background-color: #ffff00; /* Color de fondo para la clase indicadorc */
 }
 
 .top {
     grid-area: top;
-    background-color: #ff00ff; /* Color de fondo para la clase top */
 }
 
 .tabla {
     grid-area: tabla;
-    background-color: #00ffff; /* Color de fondo para la clase tabla */
 }
 
 .grafico2 {
     grid-area: grafico2;
-    background-color: #ff9900; /* Color de fondo para la clase grafico2 */
 }

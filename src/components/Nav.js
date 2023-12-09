@@ -49,7 +49,7 @@ const Wrapper = styled.div`
 
   ul li:hover i {
     color: black;
-    background: #95eef1;
+    background: #9d75d9;
     transform: rotate(360deg);
     transition: all 1s;
   }
@@ -67,7 +67,7 @@ const Wrapper = styled.div`
   }
 
   a {
-    color: #fff;
+    color: #3a3737;
     text-decoration: none;
     display: block;
   }
