@@ -6,10 +6,10 @@ const Nav = () => {
             <div className={'social'}>
                 <ul>
                     <li>
-                        <a href='/'>Home<i className={'pi pi-home'}></i></a>
+                        <a href='/'>Inicio<i className={'pi pi-home'}></i></a>
                     </li>
                     <li>
-                        <a href='/history'>Historial<i className={'pi pi-chart-line'}></i></a>
+                        <a href='/history'>Valores UF<i className={'pi pi-chart-line'}></i></a>
                     </li>
                 </ul>
             </div>
@@ -49,7 +49,7 @@ const Wrapper = styled.div`
 
   ul li:hover i {
     color: black;
-    background: #9d75d9;
+    background: #2154bb;
     transform: rotate(360deg);
     transition: all 1s;
   }
