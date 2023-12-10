@@ -9,8 +9,23 @@ import {Button} from 'primereact/button';
 const Init = () => {
     const navigate = useNavigate();
 
+    const fetchData = async () => {
+        try {
+            const response = await fetch('http://127.0.0.1:8000/data/extract/');
+            const data = await response.json();
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
     const handleOnClick = () => {
-        navigate('/history');
+        // eslint-disable-next-line no-void
+        void fetchData();
+
+        // Esperar 5 segundos antes de navegar , cargando datos
+        setTimeout(() => {
+            navigate('/history');
+        }, 5000);
     }
    return (
 
