@@ -52,6 +52,7 @@ const Wrapper = styled.div`
     background: #2154bb;
     transform: rotate(360deg);
     transition: all 1s;
+    
   }
 
   ul li i {
